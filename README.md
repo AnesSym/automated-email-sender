@@ -142,7 +142,28 @@ To use the Email Sender Project, you will need to place your custom files in the
      ```
 
    - Replace the placeholders (e.g., `name_of_dataset.csv`) with the actual names of your files.
+   ### Optional Attachments:
 
+   - **PDFs and Signatures**: If you don't want to include a PDF attachment or a signature image, you have two options:
+     1. **Remove the Line**: Simply delete the line of code that references the attachment you do not wish to include.
+     2. **Set to None**: Alternatively, you can set the value to `None`. This tells the program that no attachment is to be included.
+   ### Example:
+
+   ```python
+   email_sender(
+       # Other parameters (dataset, subject_text, email_text) remain unchanged.
+       # ...
+   
+       # If you do not want to include a PDF, you can do one of the following:
+       # Option 1: Remove the line entirely.
+       # Option 2: Set to None.
+       sales_deck=None,
+   
+       # The same applies for the signature image:
+       # Option 1: Remove the line entirely.
+       # Option 2: Set to None.
+       signature=None
+   )
 4. **Run Your Project**:
    - After placing your files and updating the function, save the `main.py` file.
    - Run the script from the terminal in Visual Studio Code:
