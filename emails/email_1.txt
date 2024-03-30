@@ -1,12 +1,6 @@
-
-
 First two lines should be empty lines just like this.
-
 between each extended sentence there should be a an empty line just like in this example.
-
 These instructions are for better visual emails. 
-
 You can Edit this email_1.txt to your liking.
-
-With regards,
+With regards, 
 The Developer :D
