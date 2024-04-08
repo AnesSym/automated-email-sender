@@ -107,4 +107,4 @@ def email_sender(dataset: pd.DataFrame,
             smtp.login(email_sender, email_password)
             smtp.sendmail(email_sender, email_receiver, em.as_string())
         
-        print(f"Email sent to {client_name} at {email_receiver}")
+    return f"Email sent to {client_name} at {email_receiver}"
