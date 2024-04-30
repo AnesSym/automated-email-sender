@@ -21,9 +21,18 @@ def main():
         initial_sidebar_state="expanded",
     )
     load_environment()
-    subject = st.sidebar.selectbox("Choose the subject:", ["emails/subject_caze.txt", "emails/subject_skylark.txt"])
-    emails_sidebar = st.sidebar.selectbox("Choose the Email:", ["emails/email_caze.txt", "emails/email_skylark.txt"])
-    signature = st.sidebar.selectbox("Choose the Signature:", [None, "attachments/skylark_card.png"])
+    def load_files(directory):
+        return [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+    
+    # Sidebar options
+    subject_files = load_files('subjects')
+    email_files = load_files('emails')
+    signature_files = load_files('attachments') + [None] 
+
+    subject = st.sidebar.selectbox("Choose the subject:", subject_files)
+    emails_sidebar = st.sidebar.selectbox("Choose the Email:", email_files)
+    signature = st.sidebar.selectbox("Choose the Signature:", signature_files)
+
     dataset = st.file_uploader("Upload a dataset CSV", type=['csv'])
     df = pd.DataFrame()
     if dataset:
@@ -52,7 +61,7 @@ def main():
         email_password = os.getenv("generated_app_password"),
         dataset = buffer,
         subject_text=subject,
-        email_html_path="emails/html_email_1.html",
+        email_html_path="html_email_1.html",
         email_text=emails_sidebar,
         sales_deck=None,
         signature_image_path=signature
