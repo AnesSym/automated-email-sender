@@ -60,11 +60,11 @@ def main():
         email_sender = os.getenv("email"),
         email_password = os.getenv("generated_app_password"),
         dataset = buffer,
-        subject_text=subject,
+        subject_text=f"subjects/{subject}",
         email_html_path="html_email_1.html",
-        email_text=emails_sidebar,
+        email_text=f"emails/{emails_sidebar}",
         sales_deck=None,
-        signature_image_path=signature
+        signature_image_path=f"attachments/{signature}"
         )
         st.download_button(
             label="Download New dataset",
@@ -77,3 +77,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
